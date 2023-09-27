@@ -1,0 +1,30 @@
+<div class="d-flex mt-3" *ngIf="!wantEdit">
+  <input
+    type="text"
+    class="form-control border border-success rounded-start rounded-end-0"
+    placeholder="Today I will..."
+    (keydown.enter)="onEnterPressedInAddTask($event, taskInput.value)"
+    #taskInput
+  />
+  <button
+    class="btn btn-success rounded-start-0"
+    (click)="addTask(taskInput.value)"
+  >
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</div>
+
+<div class="d-flex mt-3" *ngIf="wantEdit">
+  <input
+    type="text"
+    class="form-control border border-primary rounded-start rounded-end-0"
+    placeholder="Edit Selected Task Here"
+    #editInput
+  />
+  <button class="btn btn-success rounded-start-0 rounded-end-0" (click)="editTask(editInput.value)">
+    <i class="fa-solid fa-check"></i>
+  </button>
+  <button class="btn btn-danger rounded-start-0" (click)="onCancelClicked()">
+    <i class="fa-solid fa-x"></i>
+  </button>
+</div>

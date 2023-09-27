@@ -1,0 +1,32 @@
+<ul class="list-group">
+  <li
+    class="list-group-item rounded-3 d-flex align-items-center border border-dark mb-2"
+    *ngFor="let task of tasks; let i = index"
+  >
+    <span class="flex-grow-1">{{ task }}</span>
+    <button class="btn btn-warning align-self-end" (click)="onEditClicked(i)">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button class="btn btn-danger ms-2" (click)="onRemoveClicked(i)">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  </li>
+  <li
+    [ngClass]="{
+      'list-group-item': tasks.length === 0,
+      hide: tasks.length !== 0
+    }"
+    class="border border-danger"
+  >
+    <p *ngIf="tasks.length === 0">No Tasks Added...</p>
+  </li>
+</ul>
+<div class="row">
+  <app-task-editor
+    (task)="onTaskAdded($event)"
+    [wantEdit]="enableEdit"
+    [indexValue]="index"
+    (editCanceled)="onCancelEditClicked()"
+    (replacedTask)="onConfirmEditClicked($event, index)"
+  ></app-task-editor>
+</div>
