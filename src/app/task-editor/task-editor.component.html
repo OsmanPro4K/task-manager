@@ -19,6 +19,7 @@
     type="text"
     class="form-control border border-primary rounded-start rounded-end-0"
     placeholder="Edit Selected Task Here"
+    (keydown.enter)="onEnterPressedInEditTask($event, editInput.value)"
     #editInput
   />
   <button class="btn btn-success rounded-start-0 rounded-end-0" (click)="editTask(editInput.value)">

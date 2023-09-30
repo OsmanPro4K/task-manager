@@ -35,7 +35,7 @@ export class TaskEditorComponent {
   }
   onEnterPressedInEditTask(event: any, editTaskInputValue: any) {
     if (event.key === 'Enter') {
-      this.task.emit(editTaskInputValue);
+      this.replacedTask.emit(editTaskInputValue);
     }
   }
 }

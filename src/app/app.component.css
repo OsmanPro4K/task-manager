@@ -7,3 +7,9 @@
     width: auto;
   }
 }
+
+@media (min-width: 2096px) {
+  .task-manager {
+    font-size: 30px;
+  }
+}
